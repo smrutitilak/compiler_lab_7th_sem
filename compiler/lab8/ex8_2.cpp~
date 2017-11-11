@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+int main()
+{
+  int n, i, j,temp;
+  char c;
+  printf("No. of lines: ");
+  scanf(" %d", &n);
+  char code[20][100];
+  j = 0;
+  scanf("%c", &c);
+ 
+  i = 0;
+  while(i < n)
+    {
+      scanf("%c", &c);
+      if(c == '\n')
+	{
+	  code[i][j] = 0;
+	  i++;
+	  j = 0;
+	  continue;
+	}
+      code[i][j] = c;
+      j++;
+    }
+  if(code[0][8]!='+'){
+	printf("Three Address code for the given input:\n\n");
+	
+	}
+  else {
+	printf("Three Address code for the given input:\n\nt1 = ");
+  i = 7;
+  while(code[0][i] != ')')
+    {
+      printf("%c", code[0][i]);
+      i++;
+    }
+  printf("\n");
+for(i = 2; i < n-1; i++)
+    {
+      if(code[i][1]!='d')
+      printf("if(t1 == %c) GOTO A%c\n", code[i][6], code[i][6]);
+    } 
+
+  }
+
+if(code[n-2][1]=='d')
+{
+  i = 10;
+	printf("t2");
+	temp=code[n-2][i];i+=2;
+  while(code[n-2][i] != 0)
+    {
+      printf("%c", code[n-2][i]);
+      i++;
+    }
+	printf("\n %c = t2",temp);
+  printf("\nGOTO END\n");
+}
+  for(i = 2; i < n-1; i++)
+    {
+if(code[i][1]!='d') {
+      printf("A%c: ", code[i][6]);
+      j = 9;
+	printf("t2");
+	temp=code[i][j];j+=2;
+      while(code[i][j] != 0)
+	{
+	  printf("%c", code[i][j]);
+	  j++;
+	}
+	printf("");
+	printf("\n %c = t2",temp);
+      printf("\nGOTO END\n");
+	}
+    }
+  printf("END:\n");
+  return 0;
+}
+
+

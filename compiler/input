@@ -1,0 +1,30 @@
+main(int argc, char* argv[]) // access command
+-
+line arguments 
+source.open(argv[1],ios::nocreate); // source file must be there if 
+(!source) 
+{ 
+cerr << "Cannot open source file " << argv[1] << " for input
+\
+n"; 
+(
+-
+1); 
+} 
+dest.open(argv
+[2]); // dest file will be created if not found // or 
+cleared/overwritten if found 
+if (!dest) 
+{ 
+cerr << "Cannot open destination file " << argv[2] << " for output
+\
+n"; 
+(
+-
+1); 
+} 
+while (dest && source.get(ch)) dest.put(ch); cout << "DCOPY completed
+\
+n
+"; 
+source.close(); // 

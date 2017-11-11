@@ -1,0 +1,22 @@
+
+
+%{
+int charcount=0,linecount=0,ifcount=0,destcount=0,closec=0;
+%}
+
+
+%%
+. charcount++;
+\n {linecount++; charcount++;}
+if {ifcount++; printf("%d if line no",yylineno);}
+dest {destcount++; printf("%d dest line no",yylineno);}
+close { closec++;  printf("%d close line no",yylineno);}
+%%
+
+
+int main()
+{
+yylex();
+printf("There were %d if, %d dest, %d close\n",ifcount,destcount,closec);
+return 0;
+}

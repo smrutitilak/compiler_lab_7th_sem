@@ -1,0 +1,9 @@
+d [0123456789]
+
+%%
+{d}* {
+		printf("0x%04X\n %d",yytext[0]-'0' * 10 + yytext[1]-'0', yyleng);
+	}
+\n	{ }
+exit	{ return 0; }
+%%
